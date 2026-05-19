@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Login Form</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="glass-container">
+        
+        <form action="#">
+            <h2>Login</h2>
+
+               <fieldset class="input-group">
+                    <legend>Username</legend>
+                    <input type="text" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </fieldset>
+
+                <fieldset class="input-group">
+                    <legend>Password</legend>
+                    <input type="password" placeholder="Password" id="passwordField" required>
+                    <i class="fas fa-eye" id="togglePassword"></i>
+                    <i class="fas fa-lock lock-icon"></i> 
+                    
+                </fieldset>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+
+    </div>
+
+
+
+    <script>
+    // 1. HTML elements ko JS me select kar rhe hain
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordField = document.querySelector('#passwordField');
+
+    // 2. Eye icon par click event listen kar rhe hain
+    togglePassword.addEventListener('click', function () {
+        
+        // 3. Check kar rhe hain ki abhi type password h ya text
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        
+        // 4. Icon ki class badal rhe hain (Eye se Eye-Slash aur wapas Eye)
+        this.classList.toggle('fa-eye-slash');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Main Glass Container --- */
+.glass-container {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+.glass-container h2 {
+    color: #fff;
+    font-size: 2.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- Placeholder Styling: Jab box khali ho tab andar ka text kaisa dikhega --- */
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.2s ease;
+}
+/* Jab input box par click ho (focus), toh andar ka placeholder gayab ho jaye */
+.input-group input:focus::placeholder {
+    color: transparent;
+}
+
+/* --- New Built-in Border Cutting Logic --- */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 55px;
+    /* Fieldset ki default borders aur radius handle kar rhe hain */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15); /* Glass Effect */
+    padding: 0 50px 0 25px; /* Box ke andar spacing */
+    transition: all 0.3s ease;
+}
+
+/* --- Legend Default State: Shuru me border line ko pack rakhega --- */
+.input-group legend {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 5px;
+    padding: 0;
+    max-width: 0; /* Shuru me width zero taaki koi ajeeb gap na dikhe */
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    transform: translateY(-2px);
+    transition: max-width 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.2s ease, 
+                padding 0.25s ease;
+}
+/* --- Floating Animation: Click hone par ya text valid hone par legend smoothly bahar aayega --- */
+.input-group:focus-within legend,
+.input-group:has(input:valid) legend {
+    visibility: visible;
+    opacity: 1;
+    max-width: 150px; /* Label ko smoothly width dekar badhayega */
+    padding: 0 6px; /* Smoothly border line ko kaat kar gap banayega */
+}
+
+/* Input Area Styling */
+.input-group input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+   padding: 8px 50px 5px 25px;
+}
+
+/* Focus state par border highlight */
+.input-group:focus-within {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon ki placement */
+.input-group i {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+/* Lock icon ko thoda left me rakhne ke liye */
+.input-group i.lock-icon {
+    position: absolute;
+    right: 55px; /* Isse lock icon thoda andar khisak jayega */
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+/* Eye icon ko bilkul right corner me set karne ke liye */
+.input-group #togglePassword {
+    position: absolute;
+    right: 22px; /* Yeh bilkul corner me rahega */
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    cursor: pointer; /* Isse hover karne par haath ka nishan banega */
+    transition: color 0.2s ease;
+    z-index: 20;
+    pointer-events: auto;
+}
+/* Hover karne par eye icon thoda bright ho jaye */
+.input-group #togglePassword:hover {
+    color: #fff;
+}
+
+/* --- Links & Button Section --- */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #fff;
+    margin: 5px 5px 30px 5px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remember-forgot label input {
+    margin-right: 8px;
+    accent-color: #fff;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333 !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.register-link {
+    font-size: 0.95rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
